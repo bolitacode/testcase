@@ -1,0 +1,7 @@
+FROM nginx:alpine
+COPY reverse_proxy/default.conf /etc/nginx/nginx.conf
+COPY reverse_proxy/proxy.conf /etc/nginx/includes/proxy.conf
+COPY reverse_proxy/ssl.conf /etc/nginx/includes/ssl.conf
+COPY ssl/ /etc/ssl/certs/nginx/
+COPY auth/.htpasswd /etc/nginx/.htpasswd
+RUN apk add --no-cache apache2-utils
