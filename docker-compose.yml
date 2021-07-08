@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+    myproxy:
+        build:
+            context: .
+            dockerfile: myproxy
+     
+        ports:
+            - 80:80
+            - 443:443
+    mysite:
+        build:
+           context: .
+           dockerfile: prismaweb
+
+
+        ports:
+            - 8080:80
+
+        
